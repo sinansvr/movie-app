@@ -5,17 +5,21 @@ import Register from "../pages/Register";
 import Login from "../pages/Login";
 import MovieDetail from "../pages/MovieDetail";
 import Navbar from "../components/Navbar";
+import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
   return <>
-  <Navbar/>
-  <Routes>
-    <Route path="/" element={<Main/>}/>
-    <Route path="/register" element={<Register/>}/>
-    <Route path="/login" element={<Login/>}/>
-    <Route path="/details/:id" element={<MovieDetail/>}/>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/details/:id" element={<PrivateRouter/>}>
+        <Route path="/details/:id" element={<MovieDetail />} />
+      </Route>
 
-  </Routes>
+
+    </Routes>
   </>
 };
 
